@@ -30,6 +30,7 @@ for ($n = 0; $n <= count($urls) - 1; $n++) {
     $category = 'Котлы отопительные|Электрические котлы;';
     $image = $document->find('a[class="gallery-picture-link link-text-decoration-none"]')[0]->getAttribute('href');
     $model = $document->find('meta[itemprop=sku]')[0]->getAttribute('content');
+    $meta_description = 'Купить ' . $name . ' в Пензе с бесплатной доставкой по России. Выгодная цена, оплата при получении, скидки и акции, гарантия. Описание, фото и отзывы на товар.';
         
 
     $specifications = include(__DIR__.'/specifications_array.php');
@@ -46,16 +47,14 @@ for ($n = 0; $n <= count($urls) - 1; $n++) {
     } 
 
     $attributes .= $steps;
-    $all .= ($name . ';' . $price . ';' . $category . $image . ';' . '"' . $attributes . '"' . ';' . ('KSO-' . $model) . PHP_EOL);
+    $all .= ($name . ';' . $price . ';' . $category . $image . ';' . '"' . $attributes . '"' . ';' . ('KSO-' . $model) .';' . $meta_description . PHP_EOL);
     $attributes = '';
 
     echo ' Parsing ' . round(microtime(true) - $start_inner, 2) . ' секунд' . PHP_EOL;
     
 }
 
-
-
-$headers = '_NAME_;_PRICE_;_CATEGORY_;_IMAGE_;_ATTRIBUTES_;_MODEL_';
+$headers = '_NAME_;_PRICE_;_CATEGORY_;_IMAGE_;_ATTRIBUTES_;_MODEL_;_META_DESCRIPTION_';
 $summary = $headers . PHP_EOL . $all;
 //$summary = $headers . PHP_EOL . $names . ';' . $price . ';' . $category . $image . ';' . '"' . $attributes . '"' . ';' . 'KSO-TTTT0240' . PHP_EOL;
 
