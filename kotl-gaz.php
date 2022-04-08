@@ -12,8 +12,8 @@ $attributes = '';
 $urls = array(
     "https://www.pogodavdome73.ru/products/lemax-premium-ksg-12-5",
     "https://www.pogodavdome73.ru/products/lemax-aogv-8-1-sit-gazovik",
-    /* "https://www.pogodavdome73.ru/products/lemax-aogv-11-6-1-sit-gazovik",
-    "https://www.pogodavdome73.ru/products/lemax-aogv-15-5-1-sit-gazovik",
+    "https://www.pogodavdome73.ru/products/lemax-aogv-11-6-1-sit-gazovik",
+    /* "https://www.pogodavdome73.ru/products/lemax-aogv-15-5-1-sit-gazovik",
     "https://www.pogodavdome73.ru/products/vargaz-aogvk-11-6-eurosit",
     "https://www.pogodavdome73.ru/products/lemax-premier-ksg-11-6",
     "https://www.pogodavdome73.ru/products/don-eko-ksg-16-s",
