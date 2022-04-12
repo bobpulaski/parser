@@ -14,5 +14,9 @@
             case 3:
                 return array('Колонки газовые;', '/CSV/kolonki-gaz.csv', '/URLS/03-gaz-kolonki.php');
                 break;
+
+                case 4:
+                    return array('Водонагреватели|Бойлеры косвенного нагрева;', '/CSV/vodonagrev-kosven.csv', '/URLS/04-vodonagrev-kosven.php');
+                    break;
         }
     }
