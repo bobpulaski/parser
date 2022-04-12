@@ -10,5 +10,9 @@
             case 2:
                 return array('Котлы отопительные|Электрические котлы;', '/CSV/kotl-electro.csv', '/URLS/02-electro-kotel.php');
                 break;
+
+            case 3:
+                return array('Колонки газовые;', '/CSV/kolonki-gaz.csv', '/URLS/03-gaz-kolonki.php');
+                break;
         }
     }
