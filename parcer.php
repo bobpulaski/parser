@@ -1,19 +1,24 @@
 <?php
 
 require_once('vendor/autoload.php');
+require_once('algoritmselect.php');
 use DiDom\Document;
 use DiDom\Query;
 
-$all = '';
+//МЕНЯЕМ!
 
+    $wtf = 2;
+
+//*************//
+
+
+$select = selectParcer($wtf);
+
+$all = '';
 $attributes = '';
 
 
-$urls = array(
-    "https://www.pogodavdome73.ru/products/kotel-elektricheskii-kessel-evp-4-5-220v",
-    "https://www.pogodavdome73.ru/products/evan-epo-30-1",
-    
-);
+$urls = include(__DIR__ . $select[2]);
 
 $start = microtime(true);
 
@@ -27,11 +32,11 @@ for ($n = 0; $n <= count($urls) - 1; $n++) {
 
     $name = $document->find('h1')[0]->text();
     $price = str_replace(' ', '', $document->find('.price-number')[0]->text());
-    $category = 'Котлы отопительные|Электрические котлы;';
+    $category = $select[0];
     $image = $document->find('a[class="gallery-picture-link link-text-decoration-none"]')[0]->getAttribute('href');
     $model = $document->find('meta[itemprop=sku]')[0]->getAttribute('content');
     $meta_description = 'Купить ' . $name . ' в Пензе с бесплатной доставкой по России. Выгодная цена, оплата при получении, скидки и акции, гарантия. Описание, фото и отзывы на товар.';
-        
+            
 
     $specifications = include(__DIR__.'/specifications_array.php');
 
@@ -58,7 +63,7 @@ $headers = '_NAME_;_PRICE_;_CATEGORY_;_IMAGE_;_ATTRIBUTES_;_MODEL_;_META_DESCRIP
 $summary = $headers . PHP_EOL . $all;
 //$summary = $headers . PHP_EOL . $names . ';' . $price . ';' . $category . $image . ';' . '"' . $attributes . '"' . ';' . 'KSO-TTTT0240' . PHP_EOL;
 
-$file = fopen(__DIR__.'/CSV/kotl-electro.csv', 'w');
+$file = fopen(__DIR__.$select[1], 'w');
 fwrite($file, $summary); // Запись в файл
 fclose($file); // Закрытие файла
 
