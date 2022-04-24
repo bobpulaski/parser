@@ -27,7 +27,3 @@ while ($document = @file_get_contents ($url) !== FALSE) {
 
 
 
-
-
-
-
