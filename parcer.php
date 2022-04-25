@@ -6,11 +6,8 @@ require_once('algoritmselect.php');
 use DiDom\Document;
 use DiDom\Query;
 
-//МЕНЯЕМ!
-
-$wtf = 1;
-
-//*************//
+//Менеям в зависимости от названия фала с массивом ссылок в директории URL.
+$wtf = 'boylery-kosvennogo-nagreva.php';
 
 
 $select = selectParcer($wtf);
@@ -32,7 +29,14 @@ for ($n = 0; $n <= count($urls) - 1; $n++) {
     $document = new Document($urls[$n], true);
 
     $name = $document->find('h1')[0]->text();
-    $price = str_replace(' ', '', $document->find('.price-number')[0]->text());
+
+    //Проверка поля ЦЕНА на наличие значения
+    if (isset($document->find('.price-number')[0])) {
+        $price = str_replace(' ', '', $document->find('.price-number')[0]->text());
+    } else {
+        $price = '0';
+    }
+
     $category = $select[0];
     $image = $document->find('a[class="gallery-picture-link link-text-decoration-none"]')[0]->getAttribute('href');
     $model = $document->find('meta[itemprop=sku]')[0]->getAttribute('content');
@@ -47,7 +51,7 @@ for ($n = 0; $n <= count($urls) - 1; $n++) {
         if (isset($document->find("//div[@class='properties-item-name' and contains(text(), '$specifications[$i]')]", Query::TYPE_XPATH)[0])) {
 
             $step = 'Характеристики|' . trim($document->find("//div[@class='properties-item-name' and contains(text(), '$specifications[$i]')]", Query::TYPE_XPATH)[0]->text()) .
-                '|' .  trim($document->find("//div[@class='properties-item-name' and contains(text(), '$specifications[$i]')]/following::span", Query::TYPE_XPATH)[0]->text());
+                '|' . trim($document->find("//div[@class='properties-item-name' and contains(text(), '$specifications[$i]')]/following::span", Query::TYPE_XPATH)[0]->text());
             $steps .= trim($step) . PHP_EOL;
         }
     }
