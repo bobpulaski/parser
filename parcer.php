@@ -6,8 +6,8 @@ require_once('algoritmselect.php');
 use DiDom\Document;
 use DiDom\Query;
 
-//Менеям в зависимости от названия фала с массивом ссылок в директории URL.
-$wtf = 'boylery-kosvennogo-nagreva.php';
+//Менеям в зависимости от названия файла с массивом ссылок в директории URL.
+$wtf = 'schetchiki-gaza.php';
 
 
 $select = selectParcer($wtf);

@@ -5,7 +5,9 @@ require_once ('vendor/autoload.php');
 use DiDom\Document;
 use DiDom\Query;
 
-$url = 'https://www.pogodavdome73.ru/categories/boileri-kosvennogo-nagreva';
+// 1. Указываем URL для парсинга ссылок раздела
+$url = 'https://www.pogodavdome73.ru/categories/schetchiki-gaza';
+
 $prefix = '?page=';
 $page = 1;
 
